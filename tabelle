@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Numeri casuali</title>
+</head>
+<body>
+
+<h2>Numeri casuali tra -100 e 100</h2>
+<div id="output"></div>
+
+<script>
+  let numeri = [];
+
+  for (let i = 0; i < 100; i++) {
+    numeri[i] = Math.round(Math.random() * 200 - 100);
+  }
+
+  let somma = 0;
+  let max = numeri[0];
+  let min = numeri[0];
+  for (let i = 0; i < numeri.length; i++) {
+    somma += numeri[i];
+    if (numeri[i] > max) max = numeri[i];
+    if (numeri[i] < min) min = numeri[i];
+  }
+  let media = somma / numeri.length;
+
+
+  let maggiori50 = [];
+  for (let i = 0; i < numeri.length; i++) {
+    if (numeri[i] > 50) {
+      maggiori50.push(numeri[i]);
+    }
+  }
+
+
+  let tabella = "<table border='1' cellpadding='4'><tr>";
+  for (let i = 0; i < numeri.length; i++) {
+    tabella += "<td>" + numeri[i] + "</td>";
+    if ((i + 1) % 10 === 0) tabella += "</tr><tr>";
+  }
+  tabella += "</tr></table>";
+
+  let testo = tabella;
+  testo += "<p><b>Media:</b> " + media + "</p>";
+  testo += "<p><b>Massimo:</b> " + max + "</p>";
+  testo += "<p><b>Minimo:</b> " + min + "</p>";
+  testo += "<p><b>Numeri maggiori di 50:</b> " + maggiori50.join(", ") + "</p>";
+
+  document.getElementById("output").innerHTML = testo;
+</script>
+
+</body>
+</html>
