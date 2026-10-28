@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anagrafica della scuola</title>
+<style>
+  :root {
+    --carta: #f3f6f4;
+    --inchiostro: #1d2b27;
+    --verde: #1f5c4d;
+    --verde-chiaro: #e3efea;
+    --linea: #c9d8d2;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 2.5rem 1rem;
+    background: var(--carta);
+    color: var(--inchiostro);
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1.5;
+  }
+  main { max-width: 36rem; margin: 0 auto; }
+  h1 { font-size: 2rem; margin: 0 0 .25rem; }
+  p.sotto { margin: 0 0 1.5rem; color: #4d5f59; }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border: 1px solid var(--linea);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  caption {
+    text-align: left;
+    padding: 0 0 .5rem;
+    font-style: italic;
+    color: #4d5f59;
+  }
+  th, td { padding: .75rem 1rem; text-align: left; }
+  th {
+    background: var(--verde);
+    color: #fff;
+    font-weight: 600;
+  }
+  td:first-child, th:first-child { width: 3.5rem; text-align: right; color: inherit; }
+  tbody td:first-child { color: #6b7d77; }
+  tbody tr:nth-child(even) { background: var(--verde-chiaro); }
+  tbody tr:hover { background: #d3e6de; }
+  tbody td { border-top: 1px solid var(--linea); }
+
+  #stato { padding: 1rem; }
+  #stato.errore { color: #9b2c2c; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Anagrafica della scuola</h1>
+  <p class="sotto">Dati letti dal file <code>dati.xml</code> con XMLHttpRequest.</p>
+
+  <div id="risultato"><p id="stato">Caricamento in corso…</p></div>
+</main>
+
+<script>
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", "dati.xml", true);
+
+  xhr.onload = function () {
+    const contenitore = document.getElementById("risultato");
+
+    if (xhr.status !== 200) {
+      contenitore.innerHTML = '<p id="stato" class="errore">Errore nel caricamento del file (codice ' + xhr.status + ').</p>';
+      return;
+    }
+
+    // responseXML è già un documento XML navigabile (DOM)
+    const xml = xhr.responseXML;
+    const utenti = xml.getElementsByTagName("utente");
+
+    let tabella = "<table><caption>" + utenti.length + " utenti</caption>" +
+                  "<thead><tr><th>#</th><th>Nome</th><th>Cognome</th></tr></thead><tbody>";
+
+    for (let i = 0; i < utenti.length; i++) {
+      const nome = utenti[i].getElementsByTagName("nome")[0].textContent;
+      const cognome = utenti[i].getElementsByTagName("cognome")[0].textContent;
+      tabella += "<tr><td>" + (i + 1) + "</td><td>" + nome + "</td><td>" + cognome + "</td></tr>";
+    }
+
+    tabella += "</tbody></table>";
+    contenitore.innerHTML = tabella;
+  };
+
+  xhr.onerror = function () {
+    document.getElementById("risultato").innerHTML =
+      '<p id="stato" class="errore">Errore nella richiesta. Se apri il file con doppio clic (file://), usa un server locale.</p>';
+  };
+
+  xhr.send();
+</script>
+</body>
+</html>
