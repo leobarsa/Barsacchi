@@ -1,98 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scuola>
-
-  <classe nome="5A">
-
-    <utente>
-      <nome>Alessandro</nome>
-      <cognome>Monti</cognome>
+  <classe>
+    <utente id="1">
+      <nome>Antonio</nome>
+      <cognome>Banderas</cognome>
     </utente>
-
-    <utente>
-      <nome>Beatrice</nome>
-      <cognome>Fontana</cognome>
-    </utente>
-
-    <utente>
-      <nome>Cristian</nome>
-      <cognome>Landi</cognome>
-    </utente>
-
-    <utente>
-      <nome>Daria</nome>
-      <cognome>Vitali</cognome>
-    </utente>
-
-    <utente>
-      <nome>Edoardo</nome>
-      <cognome>Pellegrini</cognome>
-    </utente>
-
-    <utente>
-      <nome>Francesca</nome>
-      <cognome>Gallo</cognome>
-    </utente>
-
-    <utente>
-      <nome>Gabriele</nome>
-      <cognome>Moretti</cognome>
-    </utente>
-
-    <utente>
-      <nome>Irene</nome>
-      <cognome>Sala</cognome>
-    </utente>
-
-    <utente>
-      <nome>Jacopo</nome>
-      <cognome>Bernardi</cognome>
-    </utente>
-
-    <utente>
-      <nome>Lorenza</nome>
-      <cognome>Caruso</cognome>
-    </utente>
-
-    <utente>
-      <nome>Michele</nome>
-      <cognome>De Angelis</cognome>
-    </utente>
-
-    <utente>
-      <nome>Nadia</nome>
-      <cognome>Ferri</cognome>
-    </utente>
-
-    <utente>
-      <nome>Omar</nome>
-      <cognome>Rinaldi</cognome>
-    </utente>
-
-    <utente>
-      <nome>Paola</nome>
-      <cognome>Benedetti</cognome>
-    </utente>
-
-    <utente>
-      <nome>Riccardo</nome>
-      <cognome>Silvestri</cognome>
-    </utente>
-
-    <utente>
-      <nome>Silvia</nome>
-      <cognome>Lombardi</cognome>
-    </utente>
-
-    <utente>
-      <nome>Tommaso</nome>
-      <cognome>Barbieri</cognome>
-    </utente>
-
-    <utente>
-      <nome>Valentina</nome>
-      <cognome>Orlando</cognome>
-    </utente>
-
   </classe>
-
+  <classe>
+    <utente id="2">
+      <nome>Pino</nome>
+      <cognome>Corrias</cognome>
+    </utente>
+  </classe>
+  <classe>
+    <utente id="3">
+      <nome>Bernardo</nome>
+      <cognome>Bertolucci</cognome>
+    </utente>
+  </classe>
+  <classe>
+    <utente id="4">
+      <nome>Mauro</nome>
+      <cognome>Bianchi</cognome>
+    </utente>
+  </classe>
+  <classe>
+    <utente id="5">
+      <nome>Luca</nome>
+      <cognome>Sparascio</cognome>
+    </utente>
+  </classe>
+  <classe>
+    <utente id="6">
+      <nome>Giulia</nome>
+      <cognome>Verdi</cognome>
+    </utente>
+  </classe>
+  <classe>
+    <utente id="7">
+      <nome>Alessandro</nome>
+      <cognome>Manzoni</cognome>
+    </utente>
+  </classe>
+  <classe>
+    <utente id="8">
+      <nome>Sofia</nome>
+      <cognome>Rossi</cognome>
+    </utente>
+  </classe>
 </scuola>
